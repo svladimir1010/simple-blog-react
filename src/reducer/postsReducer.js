@@ -1,5 +1,6 @@
 const initialState = {
   data: [],
+  users: [],
   loading: false,
   error: null
 };
@@ -14,6 +15,7 @@ const postsReducer = (state = initialState, action) => {
     case "REQUESTED_POST_SUCCEEDED":
       return {
         data: action.data,
+        users: action.users,
         loading: false,
         error: null
       };

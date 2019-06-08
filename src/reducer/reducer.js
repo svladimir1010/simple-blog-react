@@ -27,6 +27,9 @@ const reducers = (state = initialState, action) => {
         error: action.payload
       };
 
+
+
+      
     case "REQUESTED_USER_POST":
       return {
         ...state,

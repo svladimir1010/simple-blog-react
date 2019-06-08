@@ -32,11 +32,8 @@ class UserPage extends React.Component {
     const { userId } = this.props.match.params;
     if (!userId.length) return <Redirect to="/" />;
 
-    const { users, userPosts, loading } = this.props;
-    console.log(
-      "TCL: UserPage -> render -> this.props",
-      this.props.loading
-    );
+    const { users } = this.props.postsReducer;
+    const { userPosts, loading } = this.props.usersReducer;
 
     if (!users.length) return <Redirect to="/" />;
 
@@ -92,8 +89,8 @@ class UserPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ reducers }) => {
-  return reducers;
+const mapStateToProps = state => {
+  return state;
 };
 
 const mapDispatchToProps = {

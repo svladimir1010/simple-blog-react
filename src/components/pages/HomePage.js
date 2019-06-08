@@ -45,7 +45,7 @@ class App extends Component {
   };
 
   render() {
-    const { data } = this.props.reducers;
+    const { data, loading, error } = this.props;
 
     return (
       <BoxAllPostPage>
@@ -53,9 +53,9 @@ class App extends Component {
           <TitleHomePage>All Posts</TitleHomePage>
         </BoxTitlePage>
 
-        {this.props.reducers.loading ? (
+        {loading ? (
           <p>Loading...</p>
-        ) : this.props.reducers.error ? (
+        ) : error ? (
           <p>Error, try again</p>
         ) : (
           <>{this.posts(data)}</>
@@ -65,8 +65,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state;
+const mapStateToProps = ({ postsReducer }) => {
+  return postsReducer;
 };
 
 const mapDispatchToProps = {
