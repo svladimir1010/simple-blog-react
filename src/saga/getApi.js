@@ -10,7 +10,7 @@ import faker from "faker";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com/";
 
-// Сага-наблюдатель (watcher saga), импортится в store
+// Сага-наблюдатель (watcher saga)
 export function* watchFetchPost() {
   yield takeLatest("FETCHED_POST", fetchPostAsync);
 }
