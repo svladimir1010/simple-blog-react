@@ -18,10 +18,10 @@ export const Box = styled.div`
 export const BoxPost = styled.div`
   width: 100%;
   padding: 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.3s;
   :hover {
-    background: ${border};
+    /* background: ${border}; */
   }
 `;
 export const BoxUserAvatar = styled.div`
