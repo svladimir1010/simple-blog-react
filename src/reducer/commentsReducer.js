@@ -1,26 +1,26 @@
 const initialState = {
   loading: false,
   error: null,
-  userPosts: null
+  comments: null
 };
-const usersReducer = (state = initialState, action) => {
+const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "REQUESTED_USER_POST":
+    case "REQUESTED_COMMENTS":
       return {
         loading: true,
         error: null
       };
 
-    case "REQUESTED_POSTS_SUCCEEDED": // выбрали юзера
+    case "REQUESTED_COMMENTS_SUCCEEDED": // выбрали юзера
       return {
-        userPosts: action.userPosts,
+        comments: action.comments,
         loading: false,
         error: null
       };
 
-    case "REQUESTED_POSTS_FAILED":
+    case "REQUESTED_COMMENTS_FAILED":
       return {
-        userPosts: [],
+        comments: [],
         loading: false,
         error: action.payload
       };
@@ -30,4 +30,4 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export default usersReducer;
+export default commentsReducer;

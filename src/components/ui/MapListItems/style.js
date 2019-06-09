@@ -19,4 +19,12 @@ export const ListBody = styled.span`
   color: ${lightText};
 `;
 
-export const ListTitle = styled.h4``;
+export const ListTitle = styled.h4`
+  background: lavender;
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  :hover {
+    color: blue;
+  }
+`;

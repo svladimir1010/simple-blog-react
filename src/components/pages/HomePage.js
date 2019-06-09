@@ -20,7 +20,7 @@ class App extends Component {
     this.props.fetchPost();
   }
 
-  goTuUserCard = id => {
+  goToUserCard = id => {
     this.props.history.push("/user/" + id);
   };
 
@@ -30,7 +30,7 @@ class App extends Component {
         <Box key={item.id}>
           <BoxUserAvatar
             onClick={() => {
-              this.goTuUserCard(item.user.id);
+              this.goToUserCard(item.user.id);
             }}>
             <Avatar alt="avatar" src={item.user.avatar} />
             <UserName>{item.user.name}</UserName>

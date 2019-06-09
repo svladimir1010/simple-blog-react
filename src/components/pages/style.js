@@ -98,7 +98,7 @@ export const UserCard = styled.div`
   }
 `;
 export const Container = styled.div`
-  margin: -39% 2% 0;
+  margin: -30% 2% 0;
   width: 30%;
   min-width: 24%;
   height: 100%;
@@ -174,5 +174,17 @@ export const Load = styled.p`
   position: relative;
   margin-top: 50px;
   top: 0px;
-  height:100%;
+  height: 100%;
+`;
+
+export const BoxComment = styled.ul`
+  list-style-type: none;
+  margin: 7% 1% 0;
+  padding: 3%;
+  border-radius: 6px;
+  box-shadow: ${shadow};
+`;
+
+export const IdComment = styled.li`
+  margin: 5px;
 `;

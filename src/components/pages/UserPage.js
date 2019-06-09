@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import MapListItems from "../ui/MapListItems";
 
+import { Redirect } from "react-router-dom";
 import { selectedUser } from "../../actions/selectUser";
 
 import {
@@ -28,11 +28,18 @@ class UserPage extends React.Component {
     this.props.selectedUser(userId);
   }
 
+  goToComment = id => {
+    this.props.history.push(
+      this.props.history.location.pathname + "/comments=" + id
+    );
+  };
+
   render() {
     const { userId } = this.props.match.params;
     if (!userId.length) return <Redirect to="/" />;
 
     const { users } = this.props.postsReducer;
+
     const { userPosts, loading } = this.props.usersReducer;
 
     if (!users.length) return <Redirect to="/" />;
@@ -80,7 +87,10 @@ class UserPage extends React.Component {
             </Container>
 
             <>
-              <MapListItems userPosts={userPosts} />
+              <MapListItems
+                goToComment={this.goToComment}
+                userPosts={userPosts}
+              />
             </>
           </>
         )}

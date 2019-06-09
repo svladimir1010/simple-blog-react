@@ -10,6 +10,7 @@ import { helloSaga } from "./sagas";
 
 import { watchFetchPost } from "../src/saga/getApi";
 import { watchGetUser } from "../src/saga/selectUser.js";
+import { watchGetComments } from "../src/saga/getComments.js";
 
 import reducers from "./reducer";
 
@@ -24,11 +25,17 @@ let store = createStore(
   persistedReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
+
 let persistor = persistStore(store);
 sagaMiddleware.run(watchFetchPost);
 
 sagaMiddleware.run(watchGetUser);
 
+sagaMiddleware.run(watchGetComments);
+
 sagaMiddleware.run(helloSaga);
 
+// store.subscribe(() => {
+//   console.log("TCL: store.getState()", store.getState());
+// });
 export { store, persistor };
