@@ -3,22 +3,32 @@ import createSagaMiddleware from "redux-saga";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import reducers from "./reducer/index";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import { helloSaga } from "./sagas";
 
 import { watchFetchPost } from "../src/saga/getApi";
 import { watchGetUser } from "../src/saga/selectUser.js";
 
+import reducers from "./reducer";
+
+const persistConfig = {
+  key: "root",
+  storage
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  reducers,
+let store = createStore(
+  persistedReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
+let persistor = persistStore(store);
 sagaMiddleware.run(watchFetchPost);
 
 sagaMiddleware.run(watchGetUser);
 
 sagaMiddleware.run(helloSaga);
 
-export default store;
+export { store, persistor };
