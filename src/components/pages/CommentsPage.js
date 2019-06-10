@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { selectedComments } from "../../actions/getComments";
 
 import {
@@ -63,3 +65,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CommentsPage);
+
+
+CommentsPage.propTypes = {
+  commentsId: PropTypes.string,
+  comments: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.object
+}

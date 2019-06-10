@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { Container, ListContain, ListBody, ListTitle } from "./style";
 
 function MapListItems({ goToComment, userPosts }) {
@@ -19,3 +21,8 @@ function MapListItems({ goToComment, userPosts }) {
 }
 
 export default MapListItems;
+
+MapListItems.propTypes = {
+  goToComment: PropTypes.func.isRequired,
+  userPosts: PropTypes.array
+}

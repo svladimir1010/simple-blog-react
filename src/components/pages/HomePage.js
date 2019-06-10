@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { fetchPost } from "../../actions/getApi";
 
 import {
@@ -15,7 +17,7 @@ import {
   UserName
 } from "./style";
 
-class App extends Component {
+class HomePage extends Component {
   componentDidMount() {
     this.props.fetchPost();
   }
@@ -76,4 +78,10 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(HomePage);
+
+HomePage.propTypes = {
+  data: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object
+};

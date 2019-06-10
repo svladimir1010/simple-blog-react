@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+
 import MapListItems from "../ui/MapListItems";
 
-import { Redirect } from "react-router-dom";
 import { selectedUser } from "../../actions/selectUser";
 
 import {
@@ -36,12 +38,13 @@ class UserPage extends React.Component {
 
   render() {
     const { userId } = this.props.match.params;
+
     if (!userId.length) return <Redirect to="/" />;
 
     const { users } = this.props.postsReducer;
 
-    const { userPosts, loading } = this.props.usersReducer;
-
+    const { userPosts, loading, error } = this.props.usersReducer;
+    // console.log("TCL: UserPage -> render -> userId", typeof userId);
     if (!users.length) return <Redirect to="/" />;
 
     const user =
@@ -55,6 +58,8 @@ class UserPage extends React.Component {
 
         {loading ? (
           <Load>Loading...</Load>
+        ) : error ? (
+          <p>Error, try again</p>
         ) : (
           <>
             <Container>
@@ -111,3 +116,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(UserPage);
+
+UserPage.propTypes = {
+  userId: PropTypes.string,
+  users: PropTypes.array,
+  userPosts: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.object
+};

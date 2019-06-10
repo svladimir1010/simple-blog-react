@@ -1,7 +1,7 @@
 const initialState = {
   loading: false,
   error: null,
-  userPosts: null
+  userPosts: []
 };
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {

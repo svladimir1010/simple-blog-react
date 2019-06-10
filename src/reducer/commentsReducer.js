@@ -1,7 +1,7 @@
 const initialState = {
   loading: false,
   error: null,
-  comments: null
+  comments: []
 };
 const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
