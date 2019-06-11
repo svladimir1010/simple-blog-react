@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Loader } from "../ui/Loader";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
@@ -21,7 +22,7 @@ import {
   BackgroundImage,
   TitleUserPage,
   BoxTitlePage,
-  Load
+  // Load
 } from "./style";
 
 class UserPage extends React.Component {
@@ -57,7 +58,7 @@ class UserPage extends React.Component {
         </BoxTitlePage>
 
         {loading ? (
-          <Load>Loading...</Load>
+          <Loader />
         ) : error ? (
           <p>Error, try again</p>
         ) : (

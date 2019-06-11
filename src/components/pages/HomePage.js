@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Loader } from "../ui/Loader";
 import PropTypes from "prop-types";
 
 import { fetchPost } from "../../redux/actions/getApi";
@@ -20,7 +21,8 @@ import {
 class HomePage extends Component {
   componentDidMount() {
     const { data } = this.props;
-    !data && this.props.fetchPost();
+    !data.length && 
+    this.props.fetchPost();
   }
 
   goToUserCard = id => {
@@ -49,7 +51,7 @@ class HomePage extends Component {
 
   render() {
     const { data, loading, error } = this.props;
-
+    
     return (
       <BoxAllPostPage>
         <BoxTitlePage>
@@ -57,7 +59,7 @@ class HomePage extends Component {
         </BoxTitlePage>
 
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : error ? (
           <p>Error, try again</p>
         ) : (

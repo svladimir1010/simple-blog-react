@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Loader } from "../ui/Loader";
 import PropTypes from "prop-types";
 
 import { selectedComments } from "../../redux/actions/getComments";
@@ -9,7 +10,7 @@ import {
   BoxTitlePage,
   TitleHomePage,
   BoxComment,
-  Load,
+  // Load,
   IdComment
 } from "./style";
 
@@ -34,7 +35,6 @@ class CommentsPage extends Component {
 
   render() {
     const { comments, loading, error } = this.props;
-    console.log("TCL: CommentsPage -> render -> comments", comments)
 
     return (
       <BoxAllPostPage>
@@ -43,7 +43,7 @@ class CommentsPage extends Component {
         </BoxTitlePage>
 
         {loading ? (
-          <Load>Loading...</Load>
+          <Loader />
         ) : error ? (
           <p>Error, try again</p>
         ) : (
@@ -67,10 +67,9 @@ export default connect(
   mapDispatchToProps
 )(CommentsPage);
 
-
 CommentsPage.propTypes = {
   commentsId: PropTypes.string,
   comments: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.object
-}
+};
