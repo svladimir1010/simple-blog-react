@@ -8,9 +8,9 @@ import storage from "redux-persist/lib/storage";
 
 import { helloSaga } from "./sagas";
 
-import { watchFetchPost } from "../src/saga/getApi";
-import { watchGetUser } from "../src/saga/selectUser.js";
-import { watchGetComments } from "../src/saga/getComments.js";
+import { watchFetchPost } from "./saga/getApi";
+import { watchGetUser } from "./saga/selectUser.js";
+import { watchGetComments } from "./saga/getComments.js";
 
 import reducers from "./reducer";
 

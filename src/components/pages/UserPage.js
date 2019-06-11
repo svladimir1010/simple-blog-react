@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import MapListItems from "../ui/MapListItems";
 
-import { selectedUser } from "../../actions/selectUser";
+import { selectedUser } from "../../redux/actions/selectUser";
 
 import {
   UserCard,

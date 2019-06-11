@@ -87,18 +87,18 @@ export const UserCard = styled.div`
   box-shadow: ${shadow};
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   margin: auto;
   width: 85%;
   color: ${text};
-  padding: 5px 0;
+  padding: 50px 0;
   @media (max-width: 780px) {
     flex-direction: column;
     width: 95%;
   }
 `;
 export const Container = styled.div`
-  margin: -30% 2% 0;
+  margin: 0 2% 0;
   width: 30%;
   min-width: 24%;
   height: 100%;
@@ -121,7 +121,7 @@ export const Information = styled.div`
 export const CardAvatar = styled.img`
   margin: 0 auto;
   width: 65%;
-  margin: -95px auto 15px;
+  margin: -90px auto 15px;
   display: block;
 `;
 export const Name = styled.div`
@@ -179,8 +179,8 @@ export const Load = styled.p`
 
 export const BoxComment = styled.ul`
   list-style-type: none;
-  margin: 7% 1% 0;
-  padding: 3%;
+  margin: 1% 1% 0;
+  padding: 1%;
   border-radius: 6px;
   box-shadow: ${shadow};
 `;

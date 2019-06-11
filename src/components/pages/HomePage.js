@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { fetchPost } from "../../actions/getApi";
+import { fetchPost } from "../../redux/actions/getApi";
 
 import {
   Box,
@@ -19,7 +19,8 @@ import {
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.fetchPost();
+    const { data } = this.props;
+    !data && this.props.fetchPost();
   }
 
   goToUserCard = id => {

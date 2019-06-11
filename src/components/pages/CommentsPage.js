@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { selectedComments } from "../../actions/getComments";
+import { selectedComments } from "../../redux/actions/getComments";
 
 import {
   BoxAllPostPage,
@@ -34,6 +34,7 @@ class CommentsPage extends Component {
 
   render() {
     const { comments, loading, error } = this.props;
+    console.log("TCL: CommentsPage -> render -> comments", comments)
 
     return (
       <BoxAllPostPage>
