@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### DEMO -   
 https://codesandbox.io/embed/main-fk5lg?fontsize=14
 
+#### May have to add devDependencies:  npm i redux-devtools-extension 
+##
 
 
 
