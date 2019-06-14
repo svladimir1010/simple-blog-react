@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
+import { persistStore, persistReducer } from "redux-persist";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { persistStore, persistReducer } from "redux-persist";
+
 import storage from "redux-persist/lib/storage";
 
 import { helloSaga } from "./sagas";
