@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 ### DEMO -   
-https://codesandbox.io/embed/main-fk5lg?fontsize=14
+https://codesandbox.io/s/main-6484x
 
 #### May have to add devDependencies:  npm i redux-devtools-extension 
 ##
