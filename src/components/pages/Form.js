@@ -30,7 +30,6 @@ class Form extends Component {
       <WrapperForm>
         <Headline>Добавьте свой коментарий</Headline>
         <SimpleForm
-          ifSubmit={this.ifSubmit}
           onSubmit={this.submit}
           initialValues={this.getInitialValues()}
         />

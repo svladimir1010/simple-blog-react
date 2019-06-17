@@ -49,7 +49,6 @@ const commentsReducer = (state = initialState, action) => {
       const arr = state.myComments.slice();
 
       arr[arr.length] = action.addComment;
-      console.log("TCL: commentsReducer -> newArr", arr);
 
       return {
         ...state,

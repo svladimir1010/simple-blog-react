@@ -22,7 +22,7 @@ class CommentsPage extends Component {
     this.props.selectedUserComments(userId, postId);
   }
 
-  mapComments = arr => {
+  renderComments = arr => {
     return arr.map((el, id) => {
       return (
         <BoxComment key={id}>
@@ -54,7 +54,7 @@ class CommentsPage extends Component {
         ) : error ? (
           <p>Error, try again</p>
         ) : (
-          <>{this.mapComments(comments)}</>
+          <>{this.renderComments(comments)}</>
         )}
       </BoxAllPostPage>
     );
