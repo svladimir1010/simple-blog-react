@@ -8,6 +8,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./components/app/App";
 import { store, persistor } from "./redux/store";
 
+const rootEl = document.getElementById("root");
+
 render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
@@ -16,5 +18,5 @@ render(
       </Router>
     </PersistGate>
   </Provider>,
-  document.getElementById("root")
+  rootEl
 );

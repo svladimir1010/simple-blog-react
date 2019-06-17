@@ -21,7 +21,7 @@ import {
   Contact,
   BackgroundImage,
   TitleUserPage,
-  BoxTitlePage,
+  BoxTitlePage
   // Load
 } from "./style";
 
@@ -31,9 +31,11 @@ class UserPage extends React.Component {
     this.props.selectedUser(userId);
   }
 
-  goToComment = id => {
+  goToComment = postId => {
     this.props.history.push(
-      this.props.history.location.pathname + "/comments=" + id
+      this.props.history.location.pathname +
+        "/postId/" +
+        Number(postId + 1)
     );
   };
 
@@ -45,11 +47,11 @@ class UserPage extends React.Component {
     const { users } = this.props.postsReducer;
 
     const { userPosts, loading, error } = this.props.usersReducer;
-    // console.log("TCL: UserPage -> render -> userId", typeof userId);
+
     if (!users.length) return <Redirect to="/" />;
 
     const user =
-      users && userId && users.find(el => el.id === +userId);
+      users && userId && users.find(el => el.id === Number(userId));
 
     return (
       <UserCard>

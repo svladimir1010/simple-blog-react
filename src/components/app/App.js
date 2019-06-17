@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { HomePage, UserPage, CommentsPage } from "../pages";
+import { HomePage, UserPage, CommentsPage, Form } from "../pages";
 
 function App() {
   return (
@@ -10,8 +10,14 @@ function App() {
       <Route path="/user/:userId" component={UserPage} exact />
 
       <Route
-        path="/user/:userId/comments=:commentsId"
+        path="/user/:userId/postId/:postId"
         component={CommentsPage}
+        exact
+      />
+
+      <Route
+        path="/user/:userId/postId/:postId/addComment"
+        component={Form}
       />
     </Switch>
   );

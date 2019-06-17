@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Loader } from "../ui/Loader";
 import PropTypes from "prop-types";
 
-import { selectedComments } from "../../redux/actions/getComments";
+import { selectedUserComments } from "../../redux/actions/selectPost";
 
 import {
   BoxAllPostPage,
@@ -11,19 +12,20 @@ import {
   TitleHomePage,
   BoxComment,
   // Load,
-  IdComment
+  IdComment,
+  Button
 } from "./style";
 
 class CommentsPage extends Component {
   componentDidMount() {
-    const { commentsId } = this.props.match.params;
-    this.props.selectedComments(commentsId);
+    const { userId, postId } = this.props.match.params;
+    this.props.selectedUserComments(userId, postId);
   }
 
   mapComments = arr => {
-    return arr.map(el => {
+    return arr.map((el, id) => {
       return (
-        <BoxComment key={el.id}>
+        <BoxComment key={id}>
           <IdComment>{el.id}.</IdComment>
           <IdComment> {el.body}</IdComment>
           <IdComment>name: &nbsp; &nbsp; {el.name}</IdComment>
@@ -41,6 +43,11 @@ class CommentsPage extends Component {
         <BoxTitlePage>
           <TitleHomePage>Comments</TitleHomePage>
         </BoxTitlePage>
+        <Button>
+          <Link to={`${this.props.match.url}/addComment`}>
+            New Comment
+          </Link>
+        </Button>
 
         {loading ? (
           <Loader />
@@ -59,7 +66,7 @@ const mapStateToProps = ({ commentsReducer }) => {
 };
 
 const mapDispatchToProps = {
-  selectedComments
+  selectedUserComments
 };
 
 export default connect(

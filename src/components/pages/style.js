@@ -18,11 +18,7 @@ export const Box = styled.div`
 export const BoxPost = styled.div`
   width: 100%;
   padding: 10px;
-  /* cursor: pointer; */
   transition: 0.3s;
-  :hover {
-    /* background: ${border}; */
-  }
 `;
 export const BoxUserAvatar = styled.div`
   width: 100px !important;
@@ -87,18 +83,18 @@ export const UserCard = styled.div`
   box-shadow: ${shadow};
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
   margin: auto;
   width: 85%;
   color: ${text};
-  padding: 50px 0;
+  padding: 5px 0;
   @media (max-width: 780px) {
     flex-direction: column;
     width: 95%;
   }
 `;
 export const Container = styled.div`
-  margin: 0 2% 0;
+  margin: -30% 2% 0;
   width: 30%;
   min-width: 24%;
   height: 100%;
@@ -121,7 +117,7 @@ export const Information = styled.div`
 export const CardAvatar = styled.img`
   margin: 0 auto;
   width: 65%;
-  margin: -90px auto 15px;
+  margin: -95px auto 15px;
   display: block;
 `;
 export const Name = styled.div`
@@ -180,11 +176,77 @@ export const Load = styled.p`
 export const BoxComment = styled.ul`
   list-style-type: none;
   margin: 1% 1% 0;
-  padding: 1%;
+  padding: 3%;
   border-radius: 6px;
   box-shadow: ${shadow};
 `;
 
 export const IdComment = styled.li`
   margin: 5px;
+`;
+
+// ====== Button ======
+
+export const Button = styled.button`
+  display: inline-block;
+  position: relative;
+
+  background-color: lavender;
+  background-image: linear-gradient(
+    hsla(0, 0%, 100%, 0.6),
+    hsla(0, 0%, 100%, 0) 50%,
+    hsla(0, 0%, 0%, 0.3) 50%,
+    hsla(0, 0%, 100%, 0.2)
+  );
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 10px 30px;
+  text-shadow: 0 0 15px hsla(0, 0%, 100%, 1);
+
+  border: none;
+  border-radius: 50px;
+  margin: 30px 15px;
+  box-shadow: inset 0 -5px 20px hsla(0, 0%, 0%, 0.4);
+
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  :before {
+    display: block;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 5px;
+    height: 30px;
+    border-radius: 15px;
+    background: linear-gradient(
+      hsla(0, 0%, 100%, 0.8),
+      hsla(0, 0%, 100%, 0)
+    );
+  }
+  :hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 -5px 20px hsla(0, 0%, 0%, 0.4);
+  }
+  :focus {
+    outline: none;
+  }
+`;
+
+// === === Form ======
+
+export const WrapperForm = styled.div`
+  padding: 15px;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  max-width: inherit;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Headline = styled.h2`
+  text-align: center;
 `;

@@ -21,28 +21,28 @@ import {
 class HomePage extends Component {
   componentDidMount() {
     const { data } = this.props;
-    !data.length && 
-    this.props.fetchPost();
+    !data.length && this.props.fetchPost();
   }
 
   goToUserCard = id => {
     this.props.history.push("/user/" + id);
   };
 
-  posts = arr => {
-    return arr.map(item => {
+  renderPosts = arr => {
+    return arr.map(({ id, user, title, body }) => {
+      
       return (
-        <Box key={item.id}>
+        <Box key={id}>
           <BoxUserAvatar
             onClick={() => {
-              this.goToUserCard(item.user.id);
+              this.goToUserCard(user.id);
             }}>
-            <Avatar alt="avatar" src={item.user.avatar} />
-            <UserName>{item.user.name}</UserName>
+            <Avatar alt="avatar" src={user.avatar} />
+            <UserName>{user.name}</UserName>
           </BoxUserAvatar>
           <BoxPost>
-            <PostsTitle>{item.title}</PostsTitle>
-            <PostsBody>{item.body}</PostsBody>
+            <PostsTitle>{title}</PostsTitle>
+            <PostsBody>{body}</PostsBody>
           </BoxPost>
         </Box>
       );
@@ -51,7 +51,7 @@ class HomePage extends Component {
 
   render() {
     const { data, loading, error } = this.props;
-    
+
     return (
       <BoxAllPostPage>
         <BoxTitlePage>
@@ -63,7 +63,7 @@ class HomePage extends Component {
         ) : error ? (
           <p>Error, try again</p>
         ) : (
-          <>{this.posts(data)}</>
+          <>{this.renderPosts(data)}</>
         )}
       </BoxAllPostPage>
     );

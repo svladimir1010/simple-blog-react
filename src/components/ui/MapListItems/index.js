@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import { Container, ListContain, ListBody, ListTitle } from "./style";
 
-function MapListItems({ goToComment, userPosts }) {
+function MapUserPosts({ goToComment, userPosts }) {
   userPosts =
     userPosts &&
-    userPosts.map(el => {
+    userPosts.map((el, id) => {
       return (
-        <ListContain key={el.id}>
-          <ListTitle onClick={() => goToComment(el.id)}>
+        <ListContain key={id}>
+          <ListTitle onClick={() => goToComment(el.userId, id)}>
             {el.title}
           </ListTitle>
           <br />
@@ -20,9 +20,9 @@ function MapListItems({ goToComment, userPosts }) {
   return <Container>{userPosts}</Container>;
 }
 
-export default MapListItems;
+export default MapUserPosts;
 
-MapListItems.propTypes = {
+MapUserPosts.propTypes = {
   goToComment: PropTypes.func.isRequired,
   userPosts: PropTypes.array
-}
+};
